@@ -4,7 +4,8 @@
     "ssh_password": "ubuntu",
     "hostname": "common-develop",
     "domain": "eauchat.org",
-    "mysql_root_password": "changethis"
+    "mysql_root_password": "changethis",
+    "mysql_mail_admin_password": "changethismailadmin"
   },
   "builders": [
     {
@@ -22,7 +23,8 @@
       "environment_vars": [
         "PACKER_HOSTNAME={{user `hostname`}}",
         "PACKER_DOMAIN={{user `domain`}}",
-        "MYSQL_ROOT_PASSWORD={{user `mysql_root_password`}}"
+        "MYSQL_ROOT_PASSWORD={{user `mysql_root_password`}}",
+        "MYSQL_MAIL_ADMIN_PASSWORD={{user `mysql_mail_admin_password`}}"
       ],
       "scripts": [
         "install-scripts/sleep",
@@ -30,6 +32,7 @@
         "install-scripts/utils",
         "install-scripts/mysql",
         "install-scripts/email",
+        "install-scripts/mysql-email",
         "install-scripts/shutdown"
       ]
     }
