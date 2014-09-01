@@ -1,9 +1,10 @@
 {
   "variables": {
     "ssh_name": "ubuntu",
-    "ssh_pass": "ubuntu",
+    "ssh_password": "ubuntu",
     "hostname": "common-develop",
-    "domain": "eauchat.org"
+    "domain": "eauchat.org",
+    "mysql_root_password": "changethis"
   },
   "builders": [
     {
@@ -11,20 +12,23 @@
       "host": "localhost",
       "port": 2224,
       "ssh_username": "{{user `ssh_name`}}",
-      "ssh_password": "{{user `ssh_pass`}}"
+      "ssh_password": "{{user `ssh_password`}}"
     }
   ],
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "echo '{{user `ssh_pass`}}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "execute_command": "echo '{{user `ssh_password`}}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
       "environment_vars": [
         "PACKER_HOSTNAME={{user `hostname`}}",
-        "PACKER_DOMAIN={{user `domain`}}"
+        "PACKER_DOMAIN={{user `domain`}}",
+        "MYSQL_ROOT_PASSWORD={{user `mysql_root_password`}}"
       ],
       "scripts": [
         "install-scripts/sleep",
         "install-scripts/hostname",
+        "install-scripts/utils",
+        "install-scripts/mysql",
         "install-scripts/shutdown"
       ]
     }
