@@ -29,6 +29,7 @@
         "install-scripts/hostname",
         "install-scripts/utils",
         "install-scripts/mysql",
+        "install-scripts/email",
         "install-scripts/shutdown"
       ]
     }
