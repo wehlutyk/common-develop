@@ -1,0 +1,27 @@
+{
+  "variables": {
+    "ssh_name": "ubuntu",
+    "ssh_pass": "ubuntu",
+    "hostname": "common-develop"
+  },
+  "builders": [
+    {
+      "type": "null",
+      "host": "localhost",
+      "port": 2224,
+      "ssh_username": "{{user `ssh_name`}}",
+      "ssh_password": "{{user `ssh_pass`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo '{{user `ssh_pass`}}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
+      "scripts": [
+        "install-scripts/sleep",
+        "install-scripts/docker",
+        "install-scripts/shutdown"
+      ]
+    }
+  ]
+}
