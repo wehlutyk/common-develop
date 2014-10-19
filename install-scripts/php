@@ -1,0 +1,6 @@
+#!/bin/bash -x
+
+set -e
+
+apt-get -y install php5 php5-fpm php-apc php5-mcrypt php5-memcache php5-curl php5-gd php-xml-parser
+sed -i 's/expose_php = On/expose_php = Off/' /etc/php5/fpm/php.ini
