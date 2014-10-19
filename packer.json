@@ -29,10 +29,12 @@
       "scripts": [
         "install-scripts/sleep",
         "install-scripts/hostname",
+        "install-scripts/upgrade",
         "install-scripts/utils",
         "install-scripts/mysql",
+        "install-scripts/nginx",
+        "install-scripts/php",
         "install-scripts/email",
-        "install-scripts/mysql-email",
         "install-scripts/shutdown"
       ]
     }
