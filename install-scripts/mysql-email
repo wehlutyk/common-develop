@@ -2,6 +2,8 @@
 
 set -e
 
+apt-get -y install postfix-mysql dovecot-mysql
+
 mysql -u root -p${MYSQL_ROOT_PASSWORD} << EOF
 
 CREATE DATABASE mail;
