@@ -33,6 +33,7 @@
         "install-scripts/utils",
         "install-scripts/mysql",
         "install-scripts/nginx",
+        "install-scripts/memcached",
         "install-scripts/php",
         "install-scripts/email",
         "install-scripts/shutdown"
