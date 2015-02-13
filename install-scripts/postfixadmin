@@ -62,10 +62,10 @@ sed -i "s/^\$CONF\['database_password'\].*$/\$CONF['database_password'] = '${MYS
 sed -i "s/^\$CONF\['database_name'\].*$/\$CONF['database_name'] = 'mail';/" $configfile
 sed -i "s/^\$CONF\['admin_email'\].*$/\$CONF['admin_email'] = 'postmaster@${PACKER_DOMAIN}';/" $configfile
 sed -i "s/^\$CONF\['encrypt'\].*$/\$CONF['encrypt'] = 'mysql_encrypt';/" $configfile
-sed -i "s/'abuse' => .*$/'abuse' => 'abuse@${PACKER_DOMAIN}',/" $configfile
-sed -i "s/'hostmaster' => .*$/'hostmaster' => 'hostmaster@${PACKER_DOMAIN}',/" $configfile
-sed -i "s/'postmaster' => .*$/'postmaster' => 'postmaster@${PACKER_DOMAIN}',/" $configfile
-sed -i "s/'webmaster' => .*$/'webmaster' => 'webmaster@${PACKER_DOMAIN}'/" $configfile
+sed -i "s/'abuse' => .*$/'abuse' => 'admin@${PACKER_DOMAIN}',/" $configfile
+sed -i "s/'hostmaster' => .*$/'hostmaster' => 'admin@${PACKER_DOMAIN}',/" $configfile
+sed -i "s/'postmaster' => .*$/'postmaster' => 'admin@${PACKER_DOMAIN}',/" $configfile
+sed -i "s/'webmaster' => .*$/'webmaster' => 'admin@${PACKER_DOMAIN}'/" $configfile
 # MARK: https
 sed -i "s/^\$CONF\['user_footer_link'\].*$/\$CONF['user_footer_link'] = 'http:\/\/${PACKER_DOMAIN}\/';/" $configfile
 sed -i "s/^\$CONF\['footer_text'\].*$/\$CONF['footer_text'] = 'Return to ${PACKER_DOMAIN}';/" $configfile
