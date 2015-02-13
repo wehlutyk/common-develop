@@ -4,3 +4,9 @@ set -e
 
 apt-get -y install php5 php5-common php5-fpm php-apc php5-mcrypt php5-memcache php5-curl php5-gd php-xml-parser php5-json php5-mysql php5-readline
 sed -i 's/expose_php = On/expose_php = Off/' /etc/php5/fpm/php.ini
+sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php5/fpm/php.ini
+
+# php5-mcrypt doesn't set its symlinks (because it lacks priority?), doing it manually.
+# Same for phhp5-imap, see email install-script.
+ln -s ../../mods-available/mcrypt.ini /etc/php5/fpm/conf.d/mcrypt.ini
+ln -s ../../mods-available/mcrypt.ini /etc/php5/cli/conf.d/mcrypt.ini

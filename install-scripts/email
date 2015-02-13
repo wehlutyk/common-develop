@@ -12,6 +12,10 @@ apt-get -y install python python-minimal python2.7 python2.7-minimal libpython-s
 
 # Install necessary php modules
 apt-get -y install php5-imap
+# php5-imap doesn't set its symlinks (because it lacks priority?), doing it manually.
+# Same for phhp5-mcrypt, see php install-script.
+ln -s ../../mods-available/imap.ini /etc/php5/fpm/conf.d/imap.ini
+ln -s ../../mods-available/imap.ini /etc/php5/cli/conf.d/imap.ini
 
 # Install antispam packages
 apt-get -y install postgrey amavis clamav clamav-daemon spamassassin pyzor razor arj cabextract lzop nomarch p7zip-full ripole rpm2cpio tnef unzip unrar-free zip zoo
