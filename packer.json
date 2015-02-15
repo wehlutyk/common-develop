@@ -36,7 +36,8 @@
         "install-scripts/memcached",
         "install-scripts/php",
         "install-scripts/email",
-        "install-scripts/mysql-email",
+        "install-scripts/email-mysql",
+        "install-scripts/email-postfixadmin",
         "install-scripts/shutdown"
       ]
     }
