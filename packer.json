@@ -38,6 +38,7 @@
         "install-scripts/email",
         "install-scripts/email-mysql",
         "install-scripts/email-postfixadmin",
+        "install-scripts/email-users",
         "install-scripts/shutdown"
       ]
     }

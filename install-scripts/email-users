@@ -1,0 +1,9 @@
+#!/bin/bash -x
+
+set -e
+
+# Add user to handle Virtual Mail directories
+useradd -r -u 150 -g mail -d /var/vmail -s /sbin/nologin -c "Virtual maildir handler" vmail
+mkdir -p /var/vmail
+chmod 770 /var/vmail
+chown vmail:mail /var/vmail
