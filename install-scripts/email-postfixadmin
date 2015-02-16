@@ -71,7 +71,7 @@ sed -i "s/^\$CONF\['user_footer_link'\].*$/\$CONF['user_footer_link'] = 'http:\/
 sed -i "s/^\$CONF\['footer_text'\].*$/\$CONF['footer_text'] = 'Return to ${PACKER_DOMAIN}';/" $configfile
 # MARK: https
 sed -i "s/^\$CONF\['footer_link'\].*$/\$CONF['footer_link'] = 'http:\/\/${PACKER_DOMAIN}\/';/" $configfile
-sed -i "s/^\$CONF\['dovecotpw'\] =.*$/\$CONF['dovecotpw'] = '\/usr\/bin\/doveadmpw';/" $configfile
+sed -i "s/^\$CONF\['dovecotpw'\] =.*$/\$CONF['dovecotpw'] = 'sudo -u dovecot \/usr\/bin\/doveadmpw';/" $configfile
 
 # Set up security to allow www-data to encrypt passwords without access to whole dovecot config directory
 echo '#!/bin/bash
@@ -80,3 +80,4 @@ set -e
 
 $(which doveadm) pw $@' > /usr/bin/doveadmpw
 chmod a+x /usr/bin/doveadmpw
+echo 'www-data ALL=(dovecot) NOPASSWD: /usr/bin/doveadmpw' > /etc/sudoers.d/doveadmpw
