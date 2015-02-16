@@ -5,7 +5,8 @@
     "hostname": "common-develop",
     "domain": "eauchat.org",
     "mysql_root_password": "changethis",
-    "mysql_mail_admin_password": "changethismailadmin"
+    "mysql_mail_admin_password": "changethismailadmin",
+    "apt_country": "ar"
   },
   "builders": [
     {
@@ -23,6 +24,7 @@
       "environment_vars": [
         "PACKER_HOSTNAME={{user `hostname`}}",
         "PACKER_DOMAIN={{user `domain`}}",
+        "APT_COUNTRY={{user `apt_country`}}",
         "MYSQL_ROOT_PASSWORD={{user `mysql_root_password`}}",
         "MYSQL_MAIL_ADMIN_PASSWORD={{user `mysql_mail_admin_password`}}"
       ],

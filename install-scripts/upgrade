@@ -2,5 +2,8 @@
 
 set -e
 
+# Set sources to current country
+sed -i "s/us.archive/${APT_COUNTRY}.archive/g" /etc/apt/sources.list
+
 apt-get update
 apt-get -y upgrade
