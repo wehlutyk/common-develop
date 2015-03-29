@@ -6,7 +6,7 @@
     "domain": "eauchat.org",
     "mysql_root_password": "changethis",
     "mysql_mail_admin_password": "changethismailadmin",
-    "apt_country": "ar"
+    "apt_country": "fr"
   },
   "builders": [
     {
