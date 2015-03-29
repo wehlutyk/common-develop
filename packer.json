@@ -13,7 +13,6 @@
       "type": "null",
       "host": "localhost",
       "port": 2224,
-      "headless": true,
       "ssh_username": "{{user `ssh_name`}}",
       "ssh_password": "{{user `ssh_password`}}"
     }

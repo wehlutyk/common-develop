@@ -28,6 +28,7 @@ qemu-system-x86_64 \
     -vnc 0.0.0.0:47 \
     -machine type=pc-1.0,accel=kvm \
     -display sdl \
+    -nographic \
     -netdev user,id=user.0 \
     -device virtio-net,netdev=user.0 &
 echo " OK"
